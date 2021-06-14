@@ -1,39 +1,39 @@
 /// <reference types="three" />
 
 interface TextureData {
-	path?: string
-	name?: string
-	folder?: string
-	namespace?: string
-	id?: string
-    particle?: boolean
-    visible?: boolean
-    mode?: string
-    saved?: boolean
-    keep_size?: boolean
-    source?: string
+    path?: string;
+    name?: string;
+    folder?: string;
+    namespace?: string;
+    id?: string;
+    particle?: boolean;
+    visible?: boolean;
+    mode?: string;
+    saved?: boolean;
+    keep_size?: boolean;
+    source?: string;
 }
 interface TextureEditOptions {
     /**
      * Edit method. 'canvas' is default
      */
-    method?: 'canvas' | 'jimp'
+    method?: "canvas" | "jimp";
     /**
      * Name of the undo entry that is created
      */
-    edit_name?: string
+    edit_name?: string;
     /**
      * Whether to use the cached canvas/jimp instance
      */
-    use_cache?: boolean
+    use_cache?: boolean;
     /**
      * If true, no undo point is created. Default is false
      */
-    no_undo?: boolean
+    no_undo?: boolean;
     /**
      * If true, the texture is not updated visually
      */
-    no_update?: boolean
+    no_update?: boolean;
 }
 
 declare class Texture {
@@ -50,7 +50,7 @@ declare class Texture {
      */
     load(cb?: () => {}): this;
     fromJavaLink(link: string, path_array: string[]): this;
-    fromFile(file: {name: string, content?: string, path: string}): this;
+    fromFile(file: { name: string; content?: string; path: string }): this;
     fromPath(path: string): this;
     fromDataURL(data_url: string): this;
     fromDefaultPack(): true | undefined;
@@ -94,7 +94,7 @@ declare class Texture {
      * Applies the texture to the selected elements
      * @param all If true, the texture is applied to all faces of the elements. If 'blank', the texture is only applied to blank faces
      */
-    apply(all: true | false | 'blank'): this;
+    apply(all: true | false | "blank"): this;
     /**
      * Shows the texture file in the file explorer
      */
@@ -116,15 +116,20 @@ declare class Texture {
      */
     getBase64(): string;
     /**
-     * Wrapper to do edits to the texture. 
-     * @param callback 
+     * Wrapper to do edits to the texture.
+     * @param callback
      * @param options Editing options
      */
-    edit(callback: (instance: HTMLCanvasElement | object) => void | HTMLCanvasElement, options: TextureEditOptions): void;
-    menu: Menu
+    edit(
+        callback: (
+            instance: HTMLCanvasElement | object
+        ) => void | HTMLCanvasElement,
+        options: TextureEditOptions
+    ): void;
+    menu: Menu;
 
-    static all: Texture[]
-    static getDefault: () => Texture
+    static all: Texture[];
+    static getDefault: () => Texture;
 }
 /**
  * Saves all textures
@@ -144,13 +149,13 @@ declare function unselectTextures(): void;
  * Handles playback of animated textures
  */
 declare namespace TextureAnimator {
-    const isPlaying: boolean
-    const interval: any
-    function start(): void
-    function stop(): void
-    function toggle(): void
-    function updateSpeed(): void
-    function nextFrame(): void
-    function reset(): void
-    function updateButton(): void
+    const isPlaying: boolean;
+    const interval: any;
+    function start(): void;
+    function stop(): void;
+    function toggle(): void;
+    function updateSpeed(): void;
+    function nextFrame(): void;
+    function reset(): void;
+    function updateButton(): void;
 }

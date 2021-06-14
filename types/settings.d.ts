@@ -1,41 +1,42 @@
 declare const settings: {
-    [id: string]: Setting
+    [id: string]: Setting;
 };
 
 interface SettingOptions {
-    name: string
-    type?: 'number' | 'string' | 'boolean' | 'password' | 'select' | 'click'
-    value: boolean | number | string
-    condition?: any
-    category: string
-    description?: string
+    name: string;
+    type?: "number" | "string" | "boolean" | "password" | "select" | "click";
+    value: boolean | number | string;
+    condition?: any;
+    category: string;
+    description?: string;
     //launch_setting?: boolean
-    min?: number
-    max?: number
-    step?: number
-    icon?: string
-    click?: () => void
+    min?: number;
+    max?: number;
+    step?: number;
+    icon?: string;
+    click?: () => void;
     options?: {
-        [id: string]: string
-    }
-    onChange?: (value: any) => void
+        [id: string]: string;
+    };
+    onChange?: (value: any) => void;
 }
 
 declare class Setting extends Deletable {
     constructor(id: string, options: SettingOptions);
-
 }
 declare const Settings: {
     structure: {};
     stored: {};
     /**
      * Opens the settings dialog
-     * @param options 
+     * @param options
      */
-    open(options?: Partial<{
-        search: string
-        tab: 'setting' | 'keybindings' | 'layout_settings' | 'credits'
-    }>): void;
+    open(
+        options?: Partial<{
+            search: string;
+            tab: "setting" | "keybindings" | "layout_settings" | "credits";
+        }>
+    ): void;
     /**
      * Save all settings to the local storage
      */

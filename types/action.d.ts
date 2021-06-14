@@ -1,22 +1,22 @@
 declare const BarItems: {
-    [id: string]: BarItem
-}
+    [id: string]: BarItem;
+};
 
 declare interface KeybindKeys {
     /**
      * Main key, can be a numeric keycode or a lower case character
      */
-    key: number | string
-    ctrl?: boolean | null
-    shift?: boolean | null
-    alt?: boolean | null
-    meta?: boolean | null
+    key: number | string;
+    ctrl?: boolean | null;
+    shift?: boolean | null;
+    alt?: boolean | null;
+    meta?: boolean | null;
 }
 declare class Keybind {
-    constructor(keys: KeybindKeys)
+    constructor(keys: KeybindKeys);
 }
 interface KeybindItemOptions {
-    keybind?: Keybind
+    keybind?: Keybind;
 }
 declare class KeybindItem extends Deletable {
     constructor(id: string, options: KeybindItemOptions);
@@ -26,12 +26,12 @@ declare class MenuSeparator {
     constructor();
 }
 interface BarItemOptions extends KeybindItemOptions {
-    name?: string
-    description?: string
-    icon: string
-    condition?: any
-    category?: string
-    keybind?: Keybind
+    name?: string;
+    description?: string;
+    icon: string;
+    condition?: any;
+    category?: string;
+    keybind?: Keybind;
 }
 declare class BarItem extends KeybindItem {
     constructor(id: string, options: BarItemOptions);
@@ -43,14 +43,14 @@ declare class BarItem extends KeybindItem {
 }
 
 interface ActionOptions extends BarItemOptions {
-    click(event: Event): void
-    color?: string
-    linked_setting?: string
-    children?: object[]
+    click(event: Event): void;
+    color?: string;
+    linked_setting?: string;
+    children?: object[];
     /**
      * Show the full label in toolbars
      */
-    label?: boolean
+    label?: boolean;
 }
 declare class Action extends BarItem {
     constructor(id: string, options: ActionOptions);
@@ -58,16 +58,16 @@ declare class Action extends BarItem {
     updateKeybindingLabel(): this;
     setIcon(icon: string): void;
     toggleLinkedSetting(change: any): void;
-    nodes: HTMLElement[]
+    nodes: HTMLElement[];
 }
 
 interface ToolOptions extends ActionOptions {
-    selectFace?: boolean
-    transformerMode?: 'translate' | ''
-    animation_channel?: string
-    toolbar?: string
-    alt_tool?: string
-    modes?: string[]
+    selectFace?: boolean;
+    transformerMode?: "translate" | "";
+    animation_channel?: string;
+    toolbar?: string;
+    alt_tool?: string;
+    modes?: string[];
 }
 declare class Tool extends Action {
     constructor(id: string, options: ToolOptions);
@@ -162,6 +162,6 @@ declare namespace Keybinds {
     const stored: {};
     const extra: {};
     const structure: {};
-    function save (): void;
-    function reset (): void;
+    function save(): void;
+    function reset(): void;
 }

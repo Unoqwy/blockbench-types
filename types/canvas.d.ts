@@ -1,12 +1,12 @@
 declare const Canvas: {
     materials: {
-        [uuid: string]: THREE.Material
+        [uuid: string]: THREE.Material;
     };
     meshes: {
-        [uuid: string]: THREE.Mesh
+        [uuid: string]: THREE.Mesh;
     };
     bones: {
-        [uuid: string]: THREE.Object3D
+        [uuid: string]: THREE.Object3D;
     };
     /**
      * The material used for all selection outlines
@@ -67,7 +67,7 @@ declare const Canvas: {
      * Redraw the selected elements in the scene
      * @param arr Optionally specify an array of elements to update
      */
-    
+
     updateSelected(arr: any): void;
     /**
      * Update positions and shapes of the selected elements
@@ -131,11 +131,11 @@ declare const Canvas: {
  * Marks a specific aspect of the interface to be updated in the next tick. Useful to avoid an update function getting called multiple times in the same task.
  */
 declare const TickUpdates: {
-    outliner: undefined | true
-    selection: undefined | true
-    main_uv: undefined | true
-    texture_list: undefined | true
-    keyframes: undefined | true
-    keyframe_selection: undefined | true
-    keybind_conflicts: undefined | true
-}
+    outliner: undefined | true;
+    selection: undefined | true;
+    main_uv: undefined | true;
+    texture_list: undefined | true;
+    keyframes: undefined | true;
+    keyframe_selection: undefined | true;
+    keybind_conflicts: undefined | true;
+};

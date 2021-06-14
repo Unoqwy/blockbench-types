@@ -1,17 +1,20 @@
 interface AnimationOptions {
-    name?: string
-    loop?: string
-    override?: boolean
-    anim_time_update?: string
-    blend_weight?: string
-    length?: number
-    snapping?: number
+    name?: string;
+    loop?: string;
+    override?: boolean;
+    anim_time_update?: string;
+    blend_weight?: string;
+    length?: number;
+    snapping?: number;
 }
 
 class Animation {
     constructor(data: AnimationOptions);
     extend(data: AnimationOptions): this;
-    getUndoCopy(options: any, save: any): {
+    getUndoCopy(
+        options: any,
+        save: any
+    ): {
         uuid: any;
         name: any;
         loop: any;
@@ -40,25 +43,23 @@ class Animation {
 }
 
 namespace Animator {
-    const open: boolean
-    const MolangParser: object
-    const motion_trail: THREE.Object3D
-    const motion_trail_lock: boolean
-    const particle_effects: object
-    function showDefaultPose(no_matrix_update?: boolean): void
-    function resetParticles(): void
-    function showMotionTrail(target?: Group): void
+    const open: boolean;
+    const MolangParser: object;
+    const motion_trail: THREE.Object3D;
+    const motion_trail_lock: boolean;
+    const particle_effects: object;
+    function showDefaultPose(no_matrix_update?: boolean): void;
+    function resetParticles(): void;
+    function showMotionTrail(target?: Group): void;
     /**
      * Updates the preview based on the current time
      */
-    function preview(): void
-    function loadParticleEmitter(path: string, content: string): void
+    function preview(): void;
+    function loadParticleEmitter(path: string, content: string): void;
     /**
      * Import a Bedrock animation file
      * @param file File object
      * @param animation_filter List of names of animations to import
      */
-    function loadFile(file: object, animation_filter?: string[])
-
-
+    function loadFile(file: object, animation_filter?: string[]);
 }

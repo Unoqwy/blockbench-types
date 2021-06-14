@@ -4,11 +4,8 @@ declare class KeyframeDataPoint {
     getUndoCopy(): {};
 }
 
-interface KeyframeOptions {
-
-}
-type axisLetter = 'x' | 'y' | 'z'
-
+interface KeyframeOptions {}
+type axisLetter = "x" | "y" | "z";
 
 declare class Keyframe {
     constructor(options: KeyframeOptions, uuid: any);
@@ -18,8 +15,20 @@ declare class Keyframe {
     set(axis: axisLetter, value: any, data_point?: number): this;
     offset(axis: axisLetter, amount: any, data_point?: number): any;
     flip(axis: axisLetter): this;
-    getLerp(other: any, axis: axisLetter, amount: any, allow_expression: any): any;
-    getCatmullromLerp(before_plus: Keyframe, before: Keyframe, after: Keyframe, after_plus: Keyframe, axis: axisLetter, alpha: number): any;
+    getLerp(
+        other: any,
+        axis: axisLetter,
+        amount: any,
+        allow_expression: any
+    ): any;
+    getCatmullromLerp(
+        before_plus: Keyframe,
+        before: Keyframe,
+        after: Keyframe,
+        after_plus: Keyframe,
+        axis: axisLetter,
+        alpha: number
+    ): any;
     getArray(data_point?: number): any[];
     getFixed(data_point?: number): any;
     getTimecodeString(): string;
