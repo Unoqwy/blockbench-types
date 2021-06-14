@@ -13,6 +13,7 @@
 /// <reference types="./legacy" />
 /// <reference types="./menu" />
 /// <reference types="./outliner" />
+/// <reference types="./plugin" />
 /// <reference types="./preview" />
 /// <reference types="./settings" />
 /// <reference types="./textures" />
@@ -184,26 +185,6 @@ declare namespace Blockbench {
     function on(event_names: EventName, callback: (data: object) => void): void;
 
     function removeEventListener(event_names: EventName): void;
-}
-
-interface PluginData {
-    title: string;
-    author: string;
-    description: string;
-    icon: string;
-    variant: "desktop" | "web" | "both";
-    about?: string;
-    min_version: string;
-    max_version: string;
-    onload: () => void;
-    onunload: () => void;
-    oninstall: () => void;
-    onuninstall: () => void;
-}
-
-declare class Plugin {
-    static register(id: string, data: PluginData): Plugin;
-    constructor();
 }
 
 type Condition = any;

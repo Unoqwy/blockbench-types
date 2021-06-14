@@ -19,6 +19,11 @@ interface PluginOptions {
     onuninstall?(): void;
 }
 
+declare class Plugin {
+    static register(id: string, data: PluginOptions): Plugin;
+    constructor();
+}
+
 /**
  * Blockbench Plugin
  * @deprecated This won't work in 3.8.4 or earlier
